@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<title>OpenLayers Simplest Example</title>
+<div id="demoMap" style="height:500px"></div>
+<script src="OpenLayers.js"></script>
+<script>
+    var lon = 49.3639;
+    var lat = 6.0751;
+    var lonlat = new OpenLayers.LonLat(lon, lat);
+    map = new OpenLayers.Map("demoMap");
+    map.addLayer(new OpenLayers.Layer.OSM());
+    //map.panTo(lonlat);
+    map.zoomToMaxExtent();
+</script>
