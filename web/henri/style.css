@@ -4,6 +4,8 @@ body {
 
 * {
 	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 h1 {
@@ -13,38 +15,33 @@ h1 {
 	font-family: AR Christy;
 }
 
-#aboutdiv {
-	height: 100px;
-	width: 160px;
-	float: center;
-}
-
-#mapdiv {
+#mapDiv {
 	height: 650px;
 	width: 99.3%;
-	border: 3px solid blue;
+	border: 5px solid black;
 	float: center;
 }
 
-a:link {
-	color: blue;
-	font-size: 18;
-}
-
-a:hover {
-	color: darkblue;
-	font-size: 20;
-}
-
-#about {
+#aboutImg {
 	height: 100px;
 	width: 140px;
-	float: middle;
-	text-align: center;
-	text-decoration: none;
+	float: center;
+	align: middle;
 }
 
 pre {
 	font-family: Verdana;
 	text-align: center;
+}
+
+#aboutA {
+	text-decoration: none;
+	float: center;
+}
+
+#aboutDiv {
+	float: center;
+	align: center;
+	width: 140px;
+	height: 100px;
 }

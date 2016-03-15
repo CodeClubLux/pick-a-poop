@@ -4,24 +4,24 @@
 		<link type="text/css"; rel="stylesheet"; href="style.css"/>
 	</head>
 	<body>
-		<a href="https://youtu.be/wdjK7sUgPhA">
-			<div id="aboutdiv">
-				<img id="about"; src="Dog_logo_computer_beta.png"/>
-			</div>
+		<a id="aboutA" href="https://youtu.be/wdjK7sUgPhA">
+		<div id="aboutDiv">
+			<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
+		</div>
 		</a>
 			<h1>Pick-a-Poop!</h1>
 			<pre>
-				An application to find the nearest dog poop bag dispenser!
+Click the symbol on the map to find the nearest dog poop bag dispenser!
 			</pre>
 
-		<div id="mapdiv">
+		<div id="mapDiv">
 			<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 			<script>
-				map = new OpenLayers.Map("mapdiv");
+				map = new OpenLayers.Map("mapDiv");
 				map.addLayer(new OpenLayers.Layer.OSM());
 
-				var lats = [49.6056053, 49.6022481, 49.606894];
-				var lons = [6.1004009, 6.0982424, 6.128071];
+				var lats = [49.6056053, 49.6022481, 49.6104174, 49.6099997, 49.6100161];
+				var lons = [6.1004009, 6.0982424, 6.1119808, 6.1218942, 6.1220134];
 
          		var zoom = 15;
 				
@@ -36,10 +36,8 @@
          		map.setCenter(midLux, zoom);
 
          		var Markers = new OpenLayers.Layer.Markers("Markers");
-				
-				var i = 0;
 
-				for (i = 0; i <= lats.length; i++) {
+				for (var i = 0; i <= lats.length; i++) {
 					var curLat = lats[i];
 					var curLon = lons[i];
 					var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
