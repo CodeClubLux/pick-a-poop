@@ -10,21 +10,20 @@ h1 {
 	color: black;
 	text-align: center;
 	font-size: 80px;
-	font-family: AR CARTER;
+	font-family: AR Christy;
 }
 
 #aboutdiv {
 	height: 100px;
 	width: 160px;
-	float: right;
-	text-align: center;
-	text-decoration: none;
+	float: center;
 }
 
 #mapdiv {
-	height: 750px;
-	width: 100%;
-	border-radius: 35px;
+	height: 650px;
+	width: 99.3%;
+	border: 3px solid blue;
+	float: center;
 }
 
 a:link {
@@ -39,8 +38,13 @@ a:hover {
 
 #about {
 	height: 100px;
-	width: 160px;
-	float: right;
+	width: 140px;
+	float: middle;
 	text-align: center;
 	text-decoration: none;
+}
+
+pre {
+	font-family: Verdana;
+	text-align: center;
 }
