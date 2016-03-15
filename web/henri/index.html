@@ -1,9 +1,56 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Pick-a-Poop</title>
+		<link type="text/css"; rel="stylesheet"; href="style.css"/>
 	</head>
 	<body>
-		<h1>Hello World!</h1>
+		<a href="https://youtu.be/wdjK7sUgPhA">
+			<div id="aboutdiv">
+				<img id="about"; src="Dog_logo_computer_beta.png"/>
+				<h4>About</h4>
+			</div>
+		</a>
+			<h1>Pick-a-Poop!</h1>
+
+		<div id="mapdiv"/>
+			<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+			<script>
+				map = new OpenLayers.Map("mapdiv");
+				map.addLayer(new OpenLayers.Layer.OSM());
+
+				var lats = [49.6056053, 49.6022481, 49.606894];
+				var lons = [6.1004009, 6.0982424, 6.128071];
+
+         		var zoom = 15;
+				
+    			var midLat = 49.611649;
+    			var midLon = 6.131823;
+
+    			var midLux = new OpenLayers.LonLat(midLon, midLat).transform(
+            		new OpenLayers.Projection("EPSG:4326"),
+            		map.getProjectionObject()
+         		);
+
+         		map.setCenter(midLux, zoom);
+
+         		var Markers = new OpenLayers.Layer.Markers("Markers");
+				
+				var i = 0;
+
+				for (i = 0; i <= lats.length; i++) {
+					var curLat = lats[i];
+					var curLon = lons[i];
+					var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
+            			new OpenLayers.Projection("EPSG:4326"),
+            			map.getProjectionObject()
+            		);
+					Markers.addMarker(new OpenLayers.Marker(curLonLat));
+				}
+
+				map.addLayer(Markers);
+
+			</script>
+		</div>
+		<p>Pick-a-Poop 2016</p>
 	</body>
 </html>

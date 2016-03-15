@@ -1,0 +1,46 @@
+body {
+	background-color: lightblue;
+}
+
+* {
+	margin: auto;
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-size: 80px;
+	font-family: AR CARTER;
+}
+
+#aboutdiv {
+	height: 100px;
+	width: 160px;
+	float: right;
+	text-align: center;
+	text-decoration: none;
+}
+
+#mapdiv {
+	height: 750px;
+	width: 100%;
+	border-radius: 35px;
+}
+
+a:link {
+	color: blue;
+	font-size: 18;
+}
+
+a:hover {
+	color: darkblue;
+	font-size: 20;
+}
+
+#about {
+	height: 100px;
+	width: 160px;
+	float: right;
+	text-align: center;
+	text-decoration: none;
+}
