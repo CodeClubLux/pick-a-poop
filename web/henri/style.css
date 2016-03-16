@@ -16,7 +16,7 @@ h1 {
 }
 
 #mapDiv {
-	height: 650px;
+	height: 60%;
 	width: 99.3%;
 	border: 5px solid black;
 	float: center;
@@ -30,7 +30,7 @@ h1 {
 }
 
 pre {
-	font-family: Verdana;
+	font-family: Comic Sans MS;
 	text-align: center;
 }
 
@@ -44,4 +44,41 @@ pre {
 	align: center;
 	width: 140px;
 	height: 100px;
+}
+
+#addImg {
+	height: 24px;
+	width: 35px;
+	margin-left: 20%;
+}
+
+#addI {
+	text-align: left;
+	margin-left: 18%;
+	font-family: Comic Sans MS;
+}
+
+#MEI {
+	text-align: right;
+	margin-right: 9%;
+	font-family: Comic Sans MS;
+}
+
+#MEImg {
+	height: 24px;
+	width: 35px;
+	float: right;
+	margin-right: 11%;
+}
+
+p.I {
+	display: block;
+}
+
+img.btmImg {
+	display: block;
+}
+
+span.btm {
+	display: inline;
 }
