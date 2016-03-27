@@ -1,0 +1,83 @@
+body {
+	background-color: lightblue;
+}
+
+* {
+	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-size: 80px;
+	font-family: AR Christy;
+}
+
+#mapDiv {
+	height: 60%;
+	width: 99.3%;
+	border: 5px solid black;
+	float: center;
+}
+
+#aboutImg {
+	height: 100px;
+	width: 140px;
+	float: center;
+	align: middle;
+}
+
+pre {
+	font-family: Comic Sans MS;
+	text-align: center;
+}
+
+#aboutA {
+	text-decoration: none;
+	float: center;
+}
+
+#aboutDiv {
+	float: center;
+	align: center;
+	width: 140px;
+	height: 100px;
+}
+
+#addImg {
+	height: 50px;
+	width: 65px;
+	margin-left: 20%;
+}
+
+#addI {
+	text-align: middle;
+	margin-left: 10%;
+	font-family: Blogger;
+}
+
+#MEI {
+	text-align: middle;
+	margin-left: 10%;
+	font-family: Comic Sans MS;
+}
+
+#MEImg {
+	height: 50px;
+	width: 65px;
+	margin-left: 20%;
+}
+
+p.I {
+	display: block;
+}
+
+img.btmImg {
+	display: block;
+}
+
+span.btm {
+	display: inline;
+}

@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Pick-a-Poop</title>
+		<link type="text/css"; rel="stylesheet"; href="style.css"/>
+	</head>
+	<body>
+		<a id="aboutA" href="https://youtu.be/wdjK7sUgPhA">
+		<div id="aboutDiv">
+			<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
+		</div>
+		</a>
+			<h1>Pick-a-Poop!</h1>
+			<pre>
+Click the symbol on the map to find the nearest dog poop bag dispenser!
+			</pre>
+
+		<div id="mapDiv">
+			<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+			<script>
+				map = new OpenLayers.Map("mapDiv");
+				map.addLayer(new OpenLayers.Layer.OSM());
+
+				var lats = [49.6056053, 49.6022481, 49.6104174, 49.6099997, 49.6100161];
+				var lons = [6.1004009, 6.0982424, 6.1119808, 6.1218942, 6.1220134];
+
+         		var zoom = 15;
+				
+    			var midLat = 49.611649;
+    			var midLon = 6.131823;
+
+    			var midLux = new OpenLayers.LonLat(midLon, midLat).transform(
+            		new OpenLayers.Projection("EPSG:4326"),
+            		map.getProjectionObject()
+         		);
+
+         		map.setCenter(midLux, zoom);
+
+         		var Markers = new OpenLayers.Layer.Markers("Markers");
+
+				for (var i = 0; i <= lats.length; i++) {
+					var curLat = lats[i];
+					var curLon = lons[i];
+					var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
+            			new OpenLayers.Projection("EPSG:4326"),
+            			map.getProjectionObject()
+            		);
+					Markers.addMarker(new OpenLayers.Marker(curLonLat));
+				}
+
+				map.addLayer(Markers);
+
+			</script>
+		</div>
+		<span class="btm">
+		<div>
+			<p id="addI"; class="I">To report a missing dipenser, press the icon below:
+			<br>
+			</br>
+			<br>
+			<input id="addImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png" Width ="320%" height ="320%"; onclick="newDis" /></p>
+			</br>
+
+		</div>
+
+		<div>
+
+			<p id="MEI"; class="I">To report empty dispenser, press the icon below:
+				<br>
+			</br>
+			<br>
+			<input id="MEImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="MEDis" /></p>
+			</br>
+
+		</div>
+		</span>
+	</body>
+</html>
