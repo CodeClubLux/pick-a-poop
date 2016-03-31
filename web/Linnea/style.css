@@ -1,3 +1,9 @@
+head {
+#tit{
+
+}
+}
+
 body {
 	background-color: lightblue;
 }
@@ -81,3 +87,20 @@ img.btmImg {
 span.btm {
 	display: inline;
 }
+
+body {
+	background-image: url("zigzag.png");
+}
+
+#tit {
+	color:blue;
+}
+
+.lola{
+	color: blue;
+}
+
+.daddy{
+	color: yellow;
+}
+

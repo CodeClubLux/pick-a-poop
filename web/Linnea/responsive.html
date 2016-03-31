@@ -2,16 +2,16 @@
 	<head>
 		<title id="tit">Pick-a-Poop</title>
 		<link type="text/css"; rel="stylesheet"; href="style.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 	</head>
 	<body>
 		
-		<a id="aboutA" href="https://youtu.be/wdjK7sUgPhA">
+<div class="row-fluid">
+		<a id="aboutA" href="#https://youtu.be/wdjK7sUgPhA">
 		<div id="aboutDiv">
 			<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
 		</div>
@@ -68,29 +68,43 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 		</div>
 		<br>
 		</br>
-		<span class="btm">
-			<p id="addI"; class="I">To report a missing dipenser, press the icon below:
-			<br>
-			</br>
-			<br>
-			<input id="addImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png" Width ="320%" height ="320%"; onclick="newDis" /></p>
-			</br>
+		<div class="btm row-fluid">
+				<div class="col-md-6"><a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">Foo Bar</a></div>
+				<div class="col-md-6"><a href="#" class="btn btn-warning btn-block">Lola</a>
+				</div>
 
+<br/>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p><div class="btm row-fluid">
+				<div class="col-md-6"><a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">Foo Bar</a></div>
+				<div class="col-md-6"><a href="#" class="btn btn-warning btn-block">Lola</a>
+				</div></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 		</div>
 
-		<div>
+</div>
 
-			<p id="MEI"; class="I">To report empty dispenser, press the icon below:
-				<br>
-			</br>
-			<br>
-			<input id="MEImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="MEDis" /></p>
-			</br>
-
-		</div>
-		</span>
-
-		<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script   src="events.js" ></script>
+ 
 	</body>
 </html>
+
