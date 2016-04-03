@@ -4,12 +4,12 @@
 		<link type="text/css"; rel="stylesheet"; href="style.css"/>
 	</head>
 	<body>
-		<a id="aboutA" href="https://youtu.be/wdjK7sUgPhA">
+		<a id="aboutA" href="aboutPage.html"; target="_blank">
 		<div id="aboutDiv">
 			<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
 		</div>
 		</a>
-			<h1>Pick-a-Poop!</h1>
+			<h1 class="title">Pick-a-Poop!</h1>
 			<pre>
 Click the symbol on the map to find the nearest dog poop bag dispenser!
 			</pre>
@@ -22,6 +22,8 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
 				var lats = [49.6056053, 49.6022481, 49.6104174, 49.6099997, 49.6100161];
 				var lons = [6.1004009, 6.0982424, 6.1119808, 6.1218942, 6.1220134];
+
+				var stats = [1, 1, 1, 1, 1];
 
          		var zoom = 15;
 				
@@ -37,28 +39,59 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
          		var Markers = new OpenLayers.Layer.Markers("Markers");
 
-				for (var i = 0; i <= lats.length; i++) {
-					var curLat = lats[i];
-					var curLon = lons[i];
-					var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
-            			new OpenLayers.Projection("EPSG:4326"),
-            			map.getProjectionObject()
-            		);
-					Markers.addMarker(new OpenLayers.Marker(curLonLat));
-				}
+         		var addAllMarks = function() {
+					for (var i = 0; i <= lats.length; i++) {
+						var curLat = lats[i];
+						var curLon = lons[i];
+						var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
+            				new OpenLayers.Projection("EPSG:4326"),
+            				map.getProjectionObject()
+            			);
+						Markers.addMarker(new OpenLayers.Marker(curLonLat));
+					}
+				};
+
+				addAllMarks();
 
 				map.addLayer(Markers);
 
+				var newDis = function() {
+					again:
+						var newCordLon = prompt("Lon: ");
+					
+						var newCordLat = prompt("Lat: ");
+
+						if (isNaN(newCordLon) == true || isNaN(newCordLat) == true) {
+							console.log("Add inputs weren't numbers. Cancelling...");
+							alert("Please try again.");
+						} else {
+							console.log("Add inputs were numbers. Adding to map...");
+							
+							lats[lats.length] = newCordLat;
+							lons[lons.length] = newCordLon;
+
+							addAllMarks();
+							map.addLayer(Markers);
+							console.log("Added new dispenser: Lat: " + newCordLat + ", Lon: " + newCordLon);
+						}
+				};
+
+				var MEDis = function() {
+					
+				};
+
 			</script>
 		</div>
-		<span class="btm">
-			<p id="addI"; class="I"><div>To report a missing dipenser, press the icon below:
+		<p style="color: lightblue; font-size: 5px">.</p>
+		<div class="btm">
+			<div class="btm1"; type="button"; onclick="newDis()">
+				<p id="addI"; class="I">To report a missing dipenser, press here</p>
+				<img src="Dog_logo_computer_beta.png"; id="addImg" />
+			</div>	
+			<div type="button"; class="btm2"; onclick="MEDis()">
+				<p id="MEI"; class="I">To report empty dispenser, press the icon below:</p>
+				<img src="Dog_logo_computer_beta.png"; id="addImg" />
 			</div>
-			</p>
-			<input id="addImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="newDis" />
-
-			<p id="MEI"; class="I">To report empty dispenser, press the icon below:</p>
-			<input id="MEImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="MEDis" />
-		</span>
+		</div>
 	</body>
 </html>
