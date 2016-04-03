@@ -1,16 +1,16 @@
 <html>
 	<head>
-		<title>Pick-a-Poop</title>
-		<link type="text/css"; rel="stylesheet"; href="style.css"/>
+		<title>Pick-a-Poop</title> <!-- Title -->
+		<link type="text/css"; rel="stylesheet"; href="style.css"/> <!-- Link to the CSS stylesheet -->
 	</head>
 	<body>
-		<a id="aboutA" href="aboutPage.html"; target="_blank">
-		<div id="aboutDiv">
-			<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
-		</div>
+		<a id="aboutA" href="aboutPage.html"; target="_blank"> <!-- About-button -->
+			<div id="aboutDiv">
+				<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
+			</div>
 		</a>
-			<h1 class="title">Pick-a-Poop!</h1>
-			<pre>
+			<h1 class="title">Pick-a-Poop!</h1> <!-- Top title -->
+			<pre> <!-- Text under title -->
 Click the symbol on the map to find the nearest dog poop bag dispenser!
 			</pre>
 
@@ -56,41 +56,51 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 				map.addLayer(Markers);
 
 				var newDis = function() {
-					again:
-						var newCordLon = prompt("Lon: ");
-					
-						var newCordLat = prompt("Lat: ");
 
-						if (isNaN(newCordLon) == true || isNaN(newCordLat) == true) {
-							console.log("Add inputs weren't numbers. Cancelling...");
-							alert("Please try again.");
-						} else {
-							console.log("Add inputs were numbers. Adding to map...");
-							
-							lats[lats.length] = newCordLat;
-							lons[lons.length] = newCordLon;
+					console.log("foo1");
 
-							addAllMarks();
-							map.addLayer(Markers);
-							console.log("Added new dispenser: Lat: " + newCordLat + ", Lon: " + newCordLon);
-						}
+					var output = document.getElementById("out");
+
+  					if (!navigator.geolocation){
+  						console.log("fooSuccess");
+    					output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+   					    return;
+  					}
+
+  					function success(position) {
+  						console.log("success");
+
+    					var latitude  = position.coords.latitude;
+    					var longitude = position.coords.longitude;
+
+    					output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new'>Send coords via email</input>";
+					};
+
+  					function error() {
+  						console.log("error");
+    					output.innerHTML = "Unable to retrieve your location";
+  					};
+
+  					output.innerHTML = "<p>Locating</p>";
+
+  					navigator.geolocation.getCurrentPosition(success, error);
+
 				};
 
 				var MEDis = function() {
-					
+					alert("Press OK to use your current location");
+					console.log("OK");
 				};
 
 			</script>
 		</div>
 		<p style="color: lightblue; font-size: 5px">.</p>
 		<div class="btm">
-			<div class="btm1"; type="button"; onclick="newDis()">
+			<div id="out"; class="btm1"; type="button"; onclick="newDis()">
 				<p id="addI"; class="I">To report a missing dipenser, press here</p>
-				<img src="Dog_logo_computer_beta.png"; id="addImg" />
-			</div>	
+			</div>
 			<div type="button"; class="btm2"; onclick="MEDis()">
-				<p id="MEI"; class="I">To report empty dispenser, press the icon below:</p>
-				<img src="Dog_logo_computer_beta.png"; id="addImg" />
+				<p id="MEI"; class="I">To report empty dispenser, press here</p>
 			</div>
 		</div>
 	</body>

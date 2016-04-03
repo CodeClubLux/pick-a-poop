@@ -44,22 +44,12 @@ pre {
 	height: 100px;
 }
 
-#addImg {
-	height: 24px;
-	width: 35px;
-}
-
 #addI {
 	font-family: Comic Sans MS;
 }
 
 #MEI {
 	font-family: Comic Sans MS;
-}
-
-#MEImg {
-	height: 24px;
-	width: 35px;
 }
 
 div.btm {
@@ -69,14 +59,15 @@ div.btm {
 div.btm1 {
 	margin-right: 40px;
 	margin-left: 40px;
-	border: 3px solid blue;
+	border: 3px solid darkblue;
 	border-radius: 10px;
+	width: ;
 }
 
 div.btm2 {
 	margin-right: 40px;
 	margin-left: 40px;
-	border: 3px solid red;
+	border: 3px solid darkblue;
 	border-radius: 10px;
 }
 
@@ -95,4 +86,40 @@ h1.about {
 span.aboutTitle {
 	font-family: Comic Sans MS;
 	font-size: 20px;
+}
+
+div.btm1:hover {
+	background-color: blue;
+}
+
+div.btm2:hover {
+	background-color: blue;
+}
+
+div.btm1:visited {
+	background-color: green;
+}
+
+div.btm2:visited {
+	background-color: green;
+}
+
+div.btm1:link {
+	background-color: green;
+}
+
+div.btm2:link {
+	background-color: green;
+}
+
+div.btm1:active {
+	background-color: green;
+}
+
+div.btm2:active {
+	background-color: green;
+}
+
+#sendLink {
+	text-decoration: none;
 }
