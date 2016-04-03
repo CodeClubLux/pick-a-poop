@@ -1,30 +1,32 @@
 body {
-	background-color: lightblue;
+	background-color: #BAFFFF;
 }
 
 * {
 	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-h1.title {
+h1 {
 	color: black;
 	text-align: center;
 	font-size: 80px;
-	font-family: AR Christy;
+	/*font-family: Blogger;*/
 }
 
 #mapDiv {
 	height: 60%;
 	width: 99.3%;
 	border: 5px solid black;
-	float: middle;
+	float: center;
 }
 
 #aboutImg {
 	height: 100px;
 	width: 140px;
-	float: center;
-	align: center;
+	float: left;
+	align: left;
 }
 
 pre {
@@ -47,52 +49,36 @@ pre {
 #addImg {
 	height: 24px;
 	width: 35px;
+	margin-left: 20%;
 }
 
 #addI {
+	text-align: left;
+	margin-left: 18%;
 	font-family: Comic Sans MS;
 }
 
 #MEI {
+	text-align: right;
+	margin-right: 9%;
 	font-family: Comic Sans MS;
 }
 
 #MEImg {
 	height: 24px;
 	width: 35px;
+	float: right;
+	margin-right: 11%;
 }
 
-div.btm {
-	text-align: center;
+p.I {
+	display: block;
 }
 
-div.btm1 {
-	margin-right: 40px;
-	margin-left: 40px;
-	border: 3px solid blue;
-	border-radius: 10px;
+img.btmImg {
+	display: block;
 }
 
-div.btm2 {
-	margin-right: 40px;
-	margin-left: 40px;
-	border: 3px solid red;
-	border-radius: 10px;
-}
-
-video {
-	width: 100%;
-	height: 750px;
-}
-
-h1.about {
-	color: black;
-	text-align: center;
-	font-size: 80px;
-	font-family: AR Christy;
-}
-
-span.aboutTitle {
-	font-family: Comic Sans MS;
-	font-size: 20px;
+span.btm {
+	display: inline;
 }

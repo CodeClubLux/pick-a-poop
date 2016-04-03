@@ -1,0 +1,51 @@
+
+<html>
+  <head>
+  <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <meta charset="UTF-8">
+    <script src="static/js/scripts.js"></script>
+    <link href="static/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="static/favicon.ico">
+    <title>Title of the document</title>
+  </head>
+
+  <body>
+    <h1>Welcome to Pick a Poop</h1>
+    <h2>... Were dog owners UNITE!</h2>
+    <h3>Created by Henrie, Daria and Linnea</h3>
+    <h>Watch our youtube video for more information!</h>
+    <h>
+    <a target = "_blank" href = https://www.youtube.com/watch?v=wdjK7sUgPhA&feature=youtu.be>
+    <button type="button" class="btn btn-success btn-xs visible-xs ">
+    <em class="glyphicon glyphicon-film" aria-hidden="true"></em>
+    </button>
+    </a>
+    </h>
+
+
+    <p>Find the nearest dog-bag dispenser!</p>
+  <div id="mapdiv"></div>
+  <script>
+    map = new OpenLayers.Map("mapdiv");
+    map.addLayer(new OpenLayers.Layer.OSM());
+    var lat = 49.6056053
+    var lon = 6.1004009
+    var lonLat = new OpenLayers.LonLat( lon ,lat )
+          .transform(
+            new OpenLayers.Projection("ESPSG:4326"), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+
+    var zoom=16;
+
+    var markers = new OpenLayers.Layer.Markers( "Markers" );
+    map.addLayer(markers);
+
+    markers.addMarker(new OpenLayers.Marker(lonLat));
+
+    map.setCenter (lonLat, zoom);
+  </script>
+  </body>
+  
+
+</html>

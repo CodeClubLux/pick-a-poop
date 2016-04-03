@@ -77,46 +77,21 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 				};
 
 				var MEDis = function() {
-					var user = prompt("Use cur. location? (Type yes to say yes, and anything else to say no)");
-					var userNew = user.toLowerCase();
-					if (userNew == "yes") {
-						var MElat = position.coords.latitude;
-						var MElon = position.coords.longitude;
-						var foundNum = "\0";
-						for (var y = 0; y < lats.length(); y++) {
-							if (MElat > lats[i] - 0.000005 && MElat < lats[i] + 0.000005) {
-								if (MElon > lons[i] - 0.000005 && MElon < lons[i] + 0.000005) {
-									foundNum = i;
-									console.log("Marked empty: Dispenser # " + stats[foundNum]);
-								}
-							}
-						}
-
-						if (foundNum == "\0") {
-							alert("No dispensers found.");
-						}
-
-					} else {
-						var MEansw = prompt("Which one?");
-						if (isNaN(MEansw) == false) {
-							stats[MEansw] = 0;
-							console.log("Marked empty: Dispenser # " + MEansw);
-						} else {
-							console.log("ME input not a number.");
-							alert("Please try again.");
-						}
-					}
 					
 				};
 
 			</script>
 		</div>
-		<span class="btm">
-			<p id="addI"; class="I">To report a missing dipenser, press the icon below:</p>
-			<input id="addImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="newDis()" />
-
-			<p id="MEI"; class="I">To report empty dispenser, press the icon below:</p>
-			<input id="MEImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="MEDis()" />
-		</span>
+		<p style="color: lightblue; font-size: 5px">.</p>
+		<div class="btm">
+			<div class="btm1"; type="button"; onclick="newDis()">
+				<p id="addI"; class="I">To report a missing dipenser, press here</p>
+				<img src="Dog_logo_computer_beta.png"; id="addImg" />
+			</div>	
+			<div type="button"; class="btm2"; onclick="MEDis()">
+				<p id="MEI"; class="I">To report empty dispenser, press the icon below:</p>
+				<img src="Dog_logo_computer_beta.png"; id="addImg" />
+			</div>
+		</div>
 	</body>
 </html>

@@ -1,36 +1,62 @@
-<html><body>
-  <div id="mapdiv"></div>
-  <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-  <script>
-    map = new OpenLayers.Map("mapdiv");
-    map.addLayer(new OpenLayers.Layer.OSM());
+<html>
+  <head>
+    <title>Pick-a-Poop</title>
+    <link type="text/css"; rel="stylesheet"; href="style.css"/>
+  </head>
+  <body>
+    <a id="aboutA" href="https://youtu.be/wdjK7sUgPhA">
+    <div id="aboutDiv">
+      <img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
+    </div>
+    </a>
+      <h1>Pick-a-Poop!</h1>
+      <pre>
+Click the symbol on the map to find the nearest dog poop bag dispenser!
+      </pre>
 
-    var lat =[];
-    lat[0] = 49.6056053;
-    lat[1] = 49.6022481;
-    var lon = [];
-    lon[0] = 6.1004009;
-    lon[1] = 6.0982424;
-    var lonLat = [];
-    lonLat[0] = new OpenLayers.LonLat( lon[0],lat[0] )
-          .transform(
-            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-            map.getProjectionObject() // to Spherical Mercator Projection
-          );
-    lonLat[1] = new OpenLayers.LonLat( lon[1],lat[1] )
-          .transform(
-            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-            map.getProjectionObject() // to Spherical Mercator Projection
-          );
+    <div id="mapDiv">
+      <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+      <script>
+        map = new OpenLayers.Map("mapDiv");
+        map.addLayer(new OpenLayers.Layer.OSM());
 
-    var zoom=16;
+        var lats = [49.6056053, 49.6022481, 49.6104174, 49.6099997, 49.6100161];
+        var lons = [6.1004009, 6.0982424, 6.1119808, 6.1218942, 6.1220134];
 
-    var markers = new OpenLayers.Layer.Markers( "Markers" );
-    map.addLayer(markers);
+            var zoom = 15;
+        
+          var midLat = 49.611649;
+          var midLon = 6.131823;
 
-    markers.addMarker(new OpenLayers.Marker(lonLat[0]));
-    markers.addMarker(new OpenLayers.Marker(lonLat[1]));
+          var midLux = new OpenLayers.LonLat(midLon, midLat).transform(
+                new OpenLayers.Projection("EPSG:4326"),
+                map.getProjectionObject()
+            );
 
-    map.setCenter (lonLat[1], zoom);
-  </script>
-</body></html>
+            map.setCenter(midLux, zoom);
+
+            var Markers = new OpenLayers.Layer.Markers("Markers");
+
+        for (var i = 0; i <= lats.length; i++) {
+          var curLat = lats[i];
+          var curLon = lons[i];
+          var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
+                  new OpenLayers.Projection("EPSG:4326"),
+                  map.getProjectionObject()
+                );
+          Markers.addMarker(new OpenLayers.Marker(curLonLat));
+        }
+
+        map.addLayer(Markers);
+
+      </script>
+    </div>
+    <span class="btm">
+      <p id="addI"; class="I">To report a missing dipenser, press the icon below:</p>
+      <input id="addImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="newDis" />
+
+      <p id="MEI"; class="I">To report empty dispenser, press the icon below:</p>
+      <input id="MEImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="MEDis" />
+    </span>
+  </body>
+</html>

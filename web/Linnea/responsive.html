@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<title id="tit">Pick-a-Poop</title>
+		<link type="text/css"; rel="stylesheet"; href="style.css"/>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+	</head>
+	<body>
+		
+<div class="row-fluid">
+		<a id="aboutA" href="#https://youtu.be/wdjK7sUgPhA">
+		<div id="aboutDiv">
+			<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
+		</div>
+		</a>
+			<h1 class="lola">Pick-a-Poop!</h1>
+			<h1 class="daddy">Pick-a-Poop!</h1>
+
+			<pre>
+Click the symbol on the map to find the nearest dog poop bag dispenser!
+			</pre>
+
+		<br>
+		</br>
+		<br>
+		</br>
+		<br>
+		</br>
+		<div id="mapDiv">
+			<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+			<script>
+				map = new OpenLayers.Map("mapDiv");
+				map.addLayer(new OpenLayers.Layer.OSM());
+
+				var lats = [49.6056053, 49.6022481, 49.6104174, 49.6099997, 49.6100161, 49.6103494, 49.6103116, 49.6090174];
+				var lons = [6.1004009, 6.0982424, 6.1119808, 6.1218942, 6.1220134, 6.1243939, 6.1241225, 6.1250375];
+
+         		var zoom = 15;
+				
+    			var midLat = 49.611649;
+    			var midLon = 6.131823;
+
+    			var midLux = new OpenLayers.LonLat(midLon, midLat).transform(
+            		new OpenLayers.Projection("EPSG:4326"),
+            		map.getProjectionObject()
+         		);
+
+         		map.setCenter(midLux, zoom);
+
+         		var Markers = new OpenLayers.Layer.Markers("Markers");
+
+				for (var i = 0; i <= lats.length; i++) {
+					var curLat = lats[i];
+					var curLon = lons[i];
+					var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
+            			new OpenLayers.Projection("EPSG:4326"),
+            			map.getProjectionObject()
+            		);
+					Markers.addMarker(new OpenLayers.Marker(curLonLat));
+				}
+
+				map.addLayer(Markers);
+
+			</script>
+		</div>
+		<br>
+		</br>
+		<div class="btm row-fluid">
+				<div class="col-md-6"><a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">Foo Bar</a></div>
+				<div class="col-md-6"><a href="#" class="btn btn-warning btn-block">Lola</a>
+				</div>
+
+<br/>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p><div class="btm row-fluid">
+				<div class="col-md-6"><a href="#" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">Foo Bar</a></div>
+				<div class="col-md-6"><a href="#" class="btn btn-warning btn-block">Lola</a>
+				</div></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+		</div>
+
+</div>
+
+<script   src="events.js" ></script>
+ 
+	</body>
+</html>
+
