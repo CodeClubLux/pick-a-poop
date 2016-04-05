@@ -5,22 +5,27 @@
     <script>
         map = new OpenLayers.Map("mapdiv");
         map.addLayer(new OpenLayers.Layer.OSM());
-        
+
         var lat = 49.6056053
         var lon = 6.1004009
         var lonLat = new OpenLayers.LonLat( lon ,lat )
-          
+
           .transform(
             new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
             map.getProjectionObject() // to Spherical Mercator Projection
           );
-        
+
+        var size = new OpenLayers.Size(96,96);
+        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+        // The parameters size and offset are optional. Try with and without.
+        var icon1 = new OpenLayers.Icon('http://ansi.lu/osm/pick-a-poop/web/henri/ff.png', size, offset);
+
         var zoom = 16;
-        
+
         var markers = new OpenLayers.Layer.Markers( "Markers" );
         map.addLayer(markers);
-        
-        markers.addMarker(new OpenLayers.Marker(lonLat));
+
+        markers.addMarker(new OpenLayers.Marker(lonLat, icon1));
 
         map.setCenter(lonLat, zoom);
     </script>
