@@ -25,38 +25,32 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
 				var stats = [1, 1, 1, 1, 1];
 
-         		var zoom = 15;
+				var zoom = 15;
 				
-    			var midLat = 49.611649;
-    			var midLon = 6.131823;
+				var midLat = 49.611649;
+				var midLon = 6.131823;
 
-    			var midLux = new OpenLayers.LonLat(midLon, midLat).transform(
-            		new OpenLayers.Projection("EPSG:4326"),
-            		map.getProjectionObject()
-         		);
+				var midLux = new OpenLayers.LonLat(midLon, midLat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
 
-         		var center = function() {
-         			map.setCenter(midLux, zoom);
-         		}
+				var center = function() {
+					map.setCenter(midLux, zoom);
+				}
 
-         		center();
+				center();
 
-         		var Markers = new OpenLayers.Layer.Markers("Markers");
+				var Markers = new OpenLayers.Layer.Markers("Markers");
 
-         		var addAllMarks = function() {
+				var addAllMarks = function() {
 					for (var i = 0; i <= lats.length; i++) {
 						var curLat = lats[i];
 						var curLon = lons[i];
-						var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(
-            				new OpenLayers.Projection("EPSG:4326"),
-            				map.getProjectionObject()
-            			);
+						var curLonLat = new OpenLayers.LonLat(curLon, curLat).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject());
 
-						var newMarker = new OpenLayers.Marker(curLonLat);
+						var size = new OpenLayers.Size(45, 37);
 
-						newMarker.setUrl("dog_marker.png");
+						var icon1 = new OpenLayers.Icon("videos_and_images/Dog_logo_computer_beta.png", size);
 
-						Markers.addMarker(newMarker);
+						Markers.addMarker(new OpenLayers.Marker(curLonLat, icon1));
 					}
 				};
 
@@ -70,35 +64,35 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
 					var output = document.getElementById("out");
 
-  					if (!navigator.geolocation){
-  						console.log("fooSuccess");
-    					output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-   					    return;
-  					}
+					if (!navigator.geolocation){
+						console.log("fooSuccess");
+						output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+						return;
+					}
 
-  					function success(position) {
-  						console.log("success");
+					function success(position) {
+						console.log("success");
 
-    					var latitude  = position.coords.latitude;
-    					var longitude = position.coords.longitude;
+						var latitude  = position.coords.latitude;
+						var longitude = position.coords.longitude;
 
-    					output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new'; style='font-family: Comic Sans MS'>Send coords via email</input>";
-    					setTimeout(reload, 5000);
+						output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new'>Send coords via email</input>";
+						setTimeout(reload, 5000);
 					};
 
-  					function error() {
-  						console.log("error");
-    					output.innerHTML = "<p style='font-family: Comic Sans MS'>Unable to retrieve your location</p>";
-    					setTimeout(reload, 2000);
-  					};
+					function error() {
+						console.log("error");
+						output.innerHTML = "<p style='font-family: Comic Sans MS'>Unable to retrieve your location</p>";
+						setTimeout(reload, 2000);
+					};
 
-  					function reload() {
-  						location.reload();
-  					}
+					function reload() {
+						location.reload();
+					}
 
-  					output.innerHTML = "<p style='font-family: Comic Sans MS'>Locating</p>";
+					output.innerHTML = "<p style='font-family: Comic Sans MS'>Locating</p>";
 
-  					navigator.geolocation.getCurrentPosition(success, error);
+					navigator.geolocation.getCurrentPosition(success, error);
 
 				};
 

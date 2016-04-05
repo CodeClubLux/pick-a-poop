@@ -123,6 +123,7 @@ div.btm2:active {
 #sendLink {
 	text-decoration: none;
 	color: black;
+	font-family: Comic Sans MS
 }
 
 #sendLink:hover {
