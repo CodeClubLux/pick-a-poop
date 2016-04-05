@@ -4,16 +4,16 @@
 		<link type="text/css"; rel="stylesheet"; href="style.css"/> <!-- Link to the CSS stylesheet -->
 	</head>
 	<body>
-		<a id="aboutA" href="aboutPage.html"; target="_blank"> <!-- About-button -->
-			<div id="aboutDiv">
-				<img id="aboutImg"; src="Dog_logo_computer_beta.png"/>
-			</div>
-		</a>
+		
+			<a id="aboutA" href="aboutPage.html"; target="_blank"> <!-- About-button -->
+				<img id="aboutImg"; src="videos_and_images\Dog_logo_computer_beta.png"/>
+			</a>
 			<h1 class="title">Pick-a-Poop!</h1> <!-- Top title -->
 			<pre> <!-- Text under title -->
 Click the symbol on the map to find the nearest dog poop bag dispenser!
 			</pre>
-
+		
+			
 		<div id="mapDiv">
 			<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 			<script>
@@ -35,7 +35,11 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
             		map.getProjectionObject()
          		);
 
-         		map.setCenter(midLux, zoom);
+         		var center = function() {
+         			map.setCenter(midLux, zoom);
+         		}
+
+         		center();
 
          		var Markers = new OpenLayers.Layer.Markers("Markers");
 
@@ -47,7 +51,12 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
             				new OpenLayers.Projection("EPSG:4326"),
             				map.getProjectionObject()
             			);
-						Markers.addMarker(new OpenLayers.Marker(curLonLat));
+
+						var newMarker = new OpenLayers.Marker(curLonLat);
+
+						newMarker.setUrl("dog_marker.png");
+
+						Markers.addMarker(newMarker);
 					}
 				};
 
@@ -73,15 +82,21 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
     					var latitude  = position.coords.latitude;
     					var longitude = position.coords.longitude;
 
-    					output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new'>Send coords via email</input>";
+    					output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new'; style='font-family: Comic Sans MS'>Send coords via email</input>";
+    					setTimeout(reload, 5000);
 					};
 
   					function error() {
   						console.log("error");
-    					output.innerHTML = "Unable to retrieve your location";
+    					output.innerHTML = "<p style='font-family: Comic Sans MS'>Unable to retrieve your location</p>";
+    					setTimeout(reload, 2000);
   					};
 
-  					output.innerHTML = "<p>Locating</p>";
+  					function reload() {
+  						location.reload();
+  					}
+
+  					output.innerHTML = "<p style='font-family: Comic Sans MS'>Locating</p>";
 
   					navigator.geolocation.getCurrentPosition(success, error);
 
@@ -94,7 +109,7 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
 			</script>
 		</div>
-		<p style="color: lightblue; font-size: 5px">.</p>
+		<p style="color: lightblue; font-size: 30px">.</p>
 		<div class="btm">
 			<div id="out"; class="btm1"; type="button"; onclick="newDis()">
 				<p id="addI"; class="I">To report a missing dipenser, press here</p>
