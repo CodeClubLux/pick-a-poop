@@ -9,8 +9,7 @@
 				<img id="aboutImg"; src="videos_and_images\Dog_logo_computer_beta.png"/>
 			</a>
 			<h1 class="title">Pick-a-Poop!</h1> <!-- Top title -->
-			<pre> <!-- Text under title -->
-Click the symbol on the map to find the nearest dog poop bag dispenser!
+			<pre>Click the symbol on the map to find the nearest dog poop bag dispenser!
 			</pre>
 		
 			
@@ -62,10 +61,11 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
 					console.log("foo1");
 
-					var output = document.getElementById("out");
+					var output = document.getElementById("btm1");
 
 					if (!navigator.geolocation){
-						console.log("fooSuccess");
+						setTimeout(reload, 2000);
+						console.log("noSuccess");
 						output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
 						return;
 					}
@@ -76,7 +76,11 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 						var latitude  = position.coords.latitude;
 						var longitude = position.coords.longitude;
 
-						output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new'>Send coords via email</input>";
+						var sub = "pickapoop_new%20lat" + latitude + "lon" + longitude;
+
+						subb = sub.toString();
+
+						output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop_new>Send coordinates via email</input>";
 						setTimeout(reload, 5000);
 					};
 
@@ -103,13 +107,14 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 
 			</script>
 		</div>
-		<p style="color: lightblue; font-size: 30px">.</p>
+		<p class="hid">.</p>
 		<div class="btm">
-			<div id="out"; class="btm1"; type="button"; onclick="newDis()">
-				<p id="addI"; class="I">To report a missing dipenser, press here</p>
+			<div id="btm1"; class="botm"; type="button"; onclick="newDis()">
+				<p id="addI"; class="I">Click me to report a missing dispenser</p>
 			</div>
-			<div type="button"; class="btm2"; onclick="MEDis()">
-				<p id="MEI"; class="I">To report empty dispenser, press here</p>
+			<p class="hid">.</p>
+			<div id="btm2"; type="button"; class="botm"; onclick="MEDis()">
+				<p id="MEI"; class="I">This button doesn't do anything yet </p>
 			</div>
 		</div>
 	</body>
