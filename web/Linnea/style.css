@@ -36,7 +36,7 @@ h1 {
 }
 
 pre {
-	font-family: Comic Sans MS;
+	font-family: Delicious, Blogger_Sans-Italic.otf;
 	text-align: center;
 }
 
@@ -93,14 +93,10 @@ body {
 }
 
 #tit {
-	color:blue;
+
 }
 
 .lola{
-	color: blue;
+	color: red;
+	font-family: Ar Christy;
 }
-
-.daddy{
-	color: yellow;
-}
-

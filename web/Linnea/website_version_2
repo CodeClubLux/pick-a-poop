@@ -17,8 +17,6 @@
 		</div>
 		</a>
 			<h1 class="lola">Pick-a-Poop!</h1>
-			<h1 class="daddy">Pick-a-Poop!</h1>
-
 			<pre>
 Click the symbol on the map to find the nearest dog poop bag dispenser!
 			</pre>
@@ -86,7 +84,7 @@ Click the symbol on the map to find the nearest dog poop bag dispenser!
 			<br>
 			<input id="MEImg"; class="btmImg"; type="image"; src="Dog_logo_computer_beta.png"; onclick="MEDis" /></p>
 			</br>
-
+s
 		</div>
 		</span>
 
