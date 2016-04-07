@@ -78,8 +78,8 @@
 
 						setTimeout(reload, 5000);
 
-						output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new>Send</a>";
-						
+						output.innerHTML = "<div id='sendLink'; onclick='window.open(\"mailto:test@example.com?subject=pickapoop_new\")'><p id='SLtxt'> Send coordinates via email </p></div>";
+
 					};
 
 					function error() {
@@ -99,7 +99,7 @@
 				};
 
 				var MEDis = function() {
-					alert("Press OK to use your current location");
+					alert("I told you already that I don't do anything (yet)!");
 					console.log("OK");
 				};
 
@@ -112,7 +112,7 @@
 			</div>
 			<p class="hid">.</p>
 			<div id="btm2"; type="button"; class="botm"; onclick="MEDis()">
-				<p id="MEI"; class="I">This button doesn't do anything yet </p>
+				<p id="MEI"; class="I">I don't do anything yet </p>
 			</div>
 		</div>
 	</body>

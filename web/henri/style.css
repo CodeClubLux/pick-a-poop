@@ -10,7 +10,7 @@ h1.title {
 	color: black;
 	text-align: center;
 	font-size: 80px;
-	font-family: AR Christy;
+	font-family: AR Christy, Blogger, Purisa;
 }
 
 #mapDiv {
@@ -77,12 +77,11 @@ span.aboutTitle {
 }
 
 #sendLink {
-	color: black;
-	font-family: Comic Sans MS
-}
-
-#sendLink:hover {
-	color: white;
+	text-align: center;
+	background-color: blue;
+	height: 30px;
+	width: 400px;
+	border-radius: 10px:;
 }
 
 div.botm {
@@ -102,5 +101,9 @@ div.botm {
 
 p.hid {
 	color: lightgrey; 
-	font-size: 20px;
+	font-size: 10px;
+}
+
+#SLtxt {
+	font-family: Comic Sans MS;
 }
