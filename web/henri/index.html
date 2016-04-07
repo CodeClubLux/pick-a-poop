@@ -6,7 +6,7 @@
 	<body>
 		
 			<a id="aboutA" href="aboutPage.html"; target="_blank"> <!-- About-button -->
-				<img id="aboutImg"; src="videos_and_images\Dog_logo_computer_beta.png"/>
+				<img id="aboutImg"; src="videos_and_images/Dog_logo_computer_beta.png"/>
 			</a>
 			<h1 class="title">Pick-a-Poop!</h1> <!-- Top title -->
 			<pre>Click the symbol on the map to find the nearest dog poop bag dispenser!
@@ -76,12 +76,10 @@
 						var latitude  = position.coords.latitude;
 						var longitude = position.coords.longitude;
 
-						var sub = "pickapoop_new%20lat" + latitude + "lon" + longitude;
-
-						subb = sub.toString();
-
-						output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop_new>Send coordinates via email</input>";
 						setTimeout(reload, 5000);
+
+						output.innerHTML = "<a id='sendLink'; href='mailto:irneha@hotmail.com?Subject=pickapoop%20new>Send</a>";
+						
 					};
 
 					function error() {
